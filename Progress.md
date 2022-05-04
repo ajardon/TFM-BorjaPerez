@@ -39,3 +39,4 @@ Posteriormente, se plantearon diversos métodos de realimentación para los labe
   - Sonido agudo*
   - Sonido grave* -> estudiar resultados según tipo de sonido ??
 - Mensaje de aviso cuando se sale (realimentación visual)
+- ***Mensaje o imagen de aviso en VR ?? Posibilidad aplicación en VR (si da tiempo)
