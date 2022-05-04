@@ -22,13 +22,13 @@ el tiempo de recorrido, cuando llega al final para mostrar la ventana de éxito.
 En primer lugar, a la escena se agregó un plano "debajo" del laberinto de modo que el puntero no pudiera atravesarlo y pudiera moverse libremente,
 limitando todos sus desplazamientos a 2 dimensiones (XY) para un mejor control y comprensión de los movimientos por el laberinto.
 
-**(IMAGEN "plano_restr_2D.png")**
+![plano_restr_2D](https://user-images.githubusercontent.com/69549100/166656751-8b97314e-f0d9-450a-9e29-0022a221d20f.png)
 
 Como primer planteamiento, se creó un "Polyshape" invertido con la forma del laberinto y se agregaron las propiedades necesarias para que el puntero
 colisionara con el mismo. De esta forma, una vez que el lápiz se ha colocado dentro de este objeto, no se permite que salga, de modo que si el puntero
 háptico se intenta salir del laberinto, notará una fuerza que se lo impide.
 
-**(IMAGEN "polyshape_restr.png")**
+![polyshape_restr](https://user-images.githubusercontent.com/69549100/166656771-10afb031-3c52-4435-8c16-ba44fc99a010.png)
 
 Posteriormente, se plantearon diversos métodos de realimentación para los laberintos:
 - Polyshape restringe movimiento (sensación de contacto con las paredes)
