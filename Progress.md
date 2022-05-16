@@ -50,6 +50,7 @@ Por otro lado, se creó un script referenciado al objeto "HapticDeviceWithGrabbe
 Seguidamente, se creó un script en Python 3.9 que lee las coordenadas del archivo .txt y crea un array de puntos 3D. A partir de este array, se muestra una gráfica con al trayectoria seguida por el paciente como se puede observar en la siguiente figura:
 
 ![testTraj1](https://user-images.githubusercontent.com/69549100/168579924-7bc50965-900f-49b0-ae96-dd0fdaab68d0.png)
+
 En esta prueba, se comenzó en la zona inicial, se subió el puntero hacia arriba (en Y) y se dibujó un circulo alrededor de la zona de inicio. Seguidamente, se alejó el puntero de la zona inicial hacia fuera, en el sentido del eje Z.
 
 También fue necesario realizar algunos ajustes para que los ejes de la gráfica mostrada correspondieran a los de la escena en Unity, de modo que es mucho más fácil manejar y entender la gráfica y observar los movimientos realizados. Adicionalmente, se mostraron dos esferas características para mostrar el punto inicial de la trayectoria (color verde) y el punto final (color rojo).
