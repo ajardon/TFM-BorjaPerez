@@ -53,3 +53,10 @@ Seguidamente, se creó un script en Python 3.9 que lee las coordenadas del archi
 En esta prueba, se comenzó en la zona inicial, se subió el puntero hacia arriba (en Y) y se dibujó un circulo alrededor de la zona de inicio. Seguidamente, se alejó el puntero de la zona inicial hacia fuera, en el sentido del eje Z.
 
 También fue necesario realizar algunos ajustes para que los ejes de la gráfica mostrada correspondieran a los de la escena en Unity, de modo que es mucho más fácil manejar y entender la gráfica y observar los movimientos realizados. Adicionalmente, se mostraron dos esferas características para mostrar el punto inicial de la trayectoria (color verde) y el punto final (color rojo).
+
+Por otro lado, también se intentó parametrizar el efecto retenedor del lápiz al laberinto para no emplear polyshapes a modo de paredes, sino referenciando al GameObject de la linea central existente en todos los laberintos. De esta forma, la idea sería que, según la distancia mínima entre el punto y esta línea central, hacer una fuerza de atracción de magnitud mayor o menor. Es decir, si el puntero está muy cerca de la zona central del laberinto, la magnitud será mínima y no se notará ninguna fuerza. No obstante, si el lápiz se aleja demasiado de la zona central, la magnitud irá aumentando, atrayendo al usuario hacia el laberinto.
+Desafortunadamente, durante las pruebas se observó que la distancia calculada entre ambos objetos no se realiza con todos los puntos del PolyShape, sino con el punto final, como vemos en la siguiente imagen:
+
+![distance](https://user-images.githubusercontent.com/69549100/168580993-78c9ffe2-7322-437b-8f77-27a3c505012f.png)
+
+Tras realizar numerosas búsquedas en internet, no se logró llegar a ninguna solución, por lo que se abrió un tema en el foro de la comunidad de Unity para pedir ayuda (https://answers.unity.com/questions/1902394/get-distance-from-moving-gameobject-and-probuilder.html). Quedará estar a la espera de alguna respuesta o solución.
