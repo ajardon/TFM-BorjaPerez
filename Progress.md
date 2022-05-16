@@ -40,3 +40,16 @@ Posteriormente, se plantearon diversos métodos de realimentación para los labe
   - Sonido grave* -> estudiar resultados según tipo de sonido ??
 - Mensaje de aviso cuando se sale (realimentación visual)
 - ***Mensaje o imagen de aviso en VR ?? Posibilidad aplicación en VR (si da tiempo)
+
+-------------------------------------------------------------------------------
+16/05/2022
+
+Se ha creado una esfera contenedora del laberinto para testear cómo hacer que el lápiz sea atraído al centro del espacio de trabajo al inicio del juego. Posteriormente, se parametrizará el script para que vaya a la zona central del mapa, pudiendo aplicar simplemente el script a cualquier mapa sin tener que crear la esfera.
+
+Por otro lado, se creó un script referenciado al objeto "HapticDeviceWithGrabber > Grabber > Sphere" de modo que, cuando se inicia el test (el puntero se posiciona en la zona inicial verde) se comienzan a guardar en un fichero .txt (Assets/trajs/trajectory.txt) las posiciones (X,Y,Z) del puntero cada 0.1s. Una vez finaliza el programa, se cierra el archivo de escritura y es accesible para otros programas o para revisarlo.
+Seguidamente, se creó un script en Python 3.9 que lee las coordenadas del archivo .txt y crea un array de puntos 3D. A partir de este array, se muestra una gráfica con al trayectoria seguida por el paciente como se puede observar en la siguiente figura:
+
+![testTraj1](https://user-images.githubusercontent.com/69549100/168579924-7bc50965-900f-49b0-ae96-dd0fdaab68d0.png)
+En esta prueba, se comenzó en la zona inicial, se subió el puntero hacia arriba (en Y) y se dibujó un circulo alrededor de la zona de inicio. Seguidamente, se alejó el puntero de la zona inicial hacia fuera, en el sentido del eje Z.
+
+También fue necesario realizar algunos ajustes para que los ejes de la gráfica mostrada correspondieran a los de la escena en Unity, de modo que es mucho más fácil manejar y entender la gráfica y observar los movimientos realizados. Adicionalmente, se mostraron dos esferas características para mostrar el punto inicial de la trayectoria (color verde) y el punto final (color rojo).
