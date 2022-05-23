@@ -61,3 +61,15 @@ Desafortunadamente, durante las pruebas se observó que la distancia calculada e
 ![distance](https://user-images.githubusercontent.com/69549100/168580993-78c9ffe2-7322-437b-8f77-27a3c505012f.png)
 
 Tras realizar numerosas búsquedas en internet, no se logró llegar a ninguna solución, por lo que se abrió un tema en el foro de la comunidad de Unity para pedir ayuda (https://answers.unity.com/questions/1902394/get-distance-from-moving-gameobject-and-probuilder.html). Quedará estar a la espera de alguna respuesta o solución.
+
+-------------------------------------------------------------------------------
+23/05/2022
+De momento la visualización se ve bien -> añadir unidades a ejes y escalar (eje Z va de 0.005 y X e Y de 2 en 2).
+Hacer la visualización directamente al acabar el laberinto (o crear un .bat del código python y que unity lo ejecute al acabar o mirar si hay forma de llamar python desde unity)
+Para futuro, la idea del proyecto sería:
+- Modular la entrada de control de la bola para poder seleccionar entre el OmniPhantom, ratón navigator (3D?) y posteriormente brazo robótico. Así se podría trabajar tanto evaluación fina (muñeca y movimientos pequeños) como evaluación grande (movimiento del brazo completo).
+- 3 modos: 
+  -  sin asistencia (todo libre, solo plano para no caer)
+  -  atracción (intentar atraer a segmentos de laberintos o coins más cercano para ir guiando al usuario)
+  -  repulsión (túnel que expulsa bola cuando se acerca a paredes, es decir, se sale mucho del laberinto) para la parametrización del túnel se podría buscar alguna forma de, a partir de un conjunto de puntos (los que definen el polyshape), crear un objeto con esa forma, como extruir una U muchas veces a lo largo del laberinto, así se podría adaptar a cualquier escena.
+-  *Echar un ojo a Barracuda y Input Manager API de Unity (para ver si existe alguna clase que permita ajustar fácilmente que el control del puntero sea con Omni Phantom, ratón o brazo robótico).
