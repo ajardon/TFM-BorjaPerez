@@ -64,6 +64,7 @@ Tras realizar numerosas búsquedas en internet, no se logró llegar a ninguna so
 
 -------------------------------------------------------------------------------
 23/05/2022
+
 De momento la visualización se ve bien -> añadir unidades a ejes y escalar (eje Z va de 0.005 y X e Y de 2 en 2).
 Hacer la visualización directamente al acabar el laberinto (o crear un .bat del código python y que unity lo ejecute al acabar o mirar si hay forma de llamar python desde unity)
 Para futuro, la idea del proyecto sería:
