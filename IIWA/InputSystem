@@ -1,0 +1,65 @@
+// GENERATED AUTOMATICALLY FROM 'Assets/MoveBall.inputactions'
+
+using System;
+using UnityEngine;
+using UnityEngine.Experimental.Input;
+
+
+[Serializable]
+public class MoveBall : InputActionAssetReference
+{
+    public MoveBall()
+    {
+    }
+    public MoveBall(InputActionAsset asset)
+        : base(asset)
+    {
+    }
+    private bool m_Initialized;
+    private void Initialize()
+    {
+        // Ball
+        m_Ball = asset.GetActionMap("Ball");
+        m_Ball_Movement = m_Ball.GetAction("Movement");
+        m_Initialized = true;
+    }
+    private void Uninitialize()
+    {
+        m_Ball = null;
+        m_Ball_Movement = null;
+        m_Initialized = false;
+    }
+    public void SetAsset(InputActionAsset newAsset)
+    {
+        if (newAsset == asset) return;
+        if (m_Initialized) Uninitialize();
+        asset = newAsset;
+    }
+    public override void MakePrivateCopyOfActions()
+    {
+        SetAsset(ScriptableObject.Instantiate(asset));
+    }
+    // Ball
+    private InputActionMap m_Ball;
+    private InputAction m_Ball_Movement;
+    public struct BallActions
+    {
+        private MoveBall m_Wrapper;
+        public BallActions(MoveBall wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement { get { return m_Wrapper.m_Ball_Movement; } }
+        public InputActionMap Get() { return m_Wrapper.m_Ball; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled { get { return Get().enabled; } }
+        public InputActionMap Clone() { return Get().Clone(); }
+        public static implicit operator InputActionMap(BallActions set) { return set.Get(); }
+    }
+    public BallActions @Ball
+    {
+        get
+        {
+            if (!m_Initialized) Initialize();
+            return new BallActions(this);
+        }
+    }
+}

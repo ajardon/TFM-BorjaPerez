@@ -1,0 +1,147 @@
+// GENERATED AUTOMATICALLY FROM 'Assets/MoveBall.inputactions'
+
+using System;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Experimental.Input;
+
+
+namespace Ball
+{
+    [Serializable]
+    public class Ball : InputActionAssetReference
+    {
+        public Ball()
+        {
+        }
+        public Ball(InputActionAsset asset)
+            : base(asset)
+        {
+        }
+        private bool m_Initialized;
+        private void Initialize()
+        {
+            // Ball
+            m_Ball = asset.GetActionMap("Ball");
+            m_Ball_Movement = m_Ball.GetAction("Movement");
+            if (m_BallMovementActionStarted != null)
+                m_Ball_Movement.started += m_BallMovementActionStarted.Invoke;
+            if (m_BallMovementActionPerformed != null)
+                m_Ball_Movement.performed += m_BallMovementActionPerformed.Invoke;
+            if (m_BallMovementActionCancelled != null)
+                m_Ball_Movement.cancelled += m_BallMovementActionCancelled.Invoke;
+            m_Ball_Jump = m_Ball.GetAction("Jump");
+            if (m_BallJumpActionStarted != null)
+                m_Ball_Jump.started += m_BallJumpActionStarted.Invoke;
+            if (m_BallJumpActionPerformed != null)
+                m_Ball_Jump.performed += m_BallJumpActionPerformed.Invoke;
+            if (m_BallJumpActionCancelled != null)
+                m_Ball_Jump.cancelled += m_BallJumpActionCancelled.Invoke;
+            m_Initialized = true;
+        }
+        private void Uninitialize()
+        {
+            if (m_BallActionsCallbackInterface != null)
+            {
+                Ball.SetCallbacks(null);
+            }
+            m_Ball = null;
+            m_Ball_Movement = null;
+            if (m_BallMovementActionStarted != null)
+                m_Ball_Movement.started -= m_BallMovementActionStarted.Invoke;
+            if (m_BallMovementActionPerformed != null)
+                m_Ball_Movement.performed -= m_BallMovementActionPerformed.Invoke;
+            if (m_BallMovementActionCancelled != null)
+                m_Ball_Movement.cancelled -= m_BallMovementActionCancelled.Invoke;
+            m_Ball_Jump = null;
+            if (m_BallJumpActionStarted != null)
+                m_Ball_Jump.started -= m_BallJumpActionStarted.Invoke;
+            if (m_BallJumpActionPerformed != null)
+                m_Ball_Jump.performed -= m_BallJumpActionPerformed.Invoke;
+            if (m_BallJumpActionCancelled != null)
+                m_Ball_Jump.cancelled -= m_BallJumpActionCancelled.Invoke;
+            m_Initialized = false;
+        }
+        public void SetAsset(InputActionAsset newAsset)
+        {
+            if (newAsset == asset) return;
+            var BallCallbacks = m_BallActionsCallbackInterface;
+            if (m_Initialized) Uninitialize();
+            asset = newAsset;
+            Ball.SetCallbacks(BallCallbacks);
+        }
+        public override void MakePrivateCopyOfActions()
+        {
+            SetAsset(ScriptableObject.Instantiate(asset));
+        }
+        // Ball
+        private InputActionMap m_Ball;
+        private IBallActions m_BallActionsCallbackInterface;
+        private InputAction m_Ball_Movement;
+        [SerializeField] private ActionEvent m_BallMovementActionStarted;
+        [SerializeField] private ActionEvent m_BallMovementActionPerformed;
+        [SerializeField] private ActionEvent m_BallMovementActionCancelled;
+        private InputAction m_Ball_Jump;
+        [SerializeField] private ActionEvent m_BallJumpActionStarted;
+        [SerializeField] private ActionEvent m_BallJumpActionPerformed;
+        [SerializeField] private ActionEvent m_BallJumpActionCancelled;
+        public struct BallActions
+        {
+            private Ball m_Wrapper;
+            public BallActions(Ball wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Movement { get { return m_Wrapper.m_Ball_Movement; } }
+            public ActionEvent MovementStarted { get { return m_Wrapper.m_BallMovementActionStarted; } }
+            public ActionEvent MovementPerformed { get { return m_Wrapper.m_BallMovementActionPerformed; } }
+            public ActionEvent MovementCancelled { get { return m_Wrapper.m_BallMovementActionCancelled; } }
+            public InputAction @Jump { get { return m_Wrapper.m_Ball_Jump; } }
+            public ActionEvent JumpStarted { get { return m_Wrapper.m_BallJumpActionStarted; } }
+            public ActionEvent JumpPerformed { get { return m_Wrapper.m_BallJumpActionPerformed; } }
+            public ActionEvent JumpCancelled { get { return m_Wrapper.m_BallJumpActionCancelled; } }
+            public InputActionMap Get() { return m_Wrapper.m_Ball; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled { get { return Get().enabled; } }
+            public InputActionMap Clone() { return Get().Clone(); }
+            public static implicit operator InputActionMap(BallActions set) { return set.Get(); }
+            public void SetCallbacks(IBallActions instance)
+            {
+                if (m_Wrapper.m_BallActionsCallbackInterface != null)
+                {
+                    Movement.started -= m_Wrapper.m_BallActionsCallbackInterface.OnMovement;
+                    Movement.performed -= m_Wrapper.m_BallActionsCallbackInterface.OnMovement;
+                    Movement.cancelled -= m_Wrapper.m_BallActionsCallbackInterface.OnMovement;
+                    Jump.started -= m_Wrapper.m_BallActionsCallbackInterface.OnJump;
+                    Jump.performed -= m_Wrapper.m_BallActionsCallbackInterface.OnJump;
+                    Jump.cancelled -= m_Wrapper.m_BallActionsCallbackInterface.OnJump;
+                }
+                m_Wrapper.m_BallActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    Movement.started += instance.OnMovement;
+                    Movement.performed += instance.OnMovement;
+                    Movement.cancelled += instance.OnMovement;
+                    Jump.started += instance.OnJump;
+                    Jump.performed += instance.OnJump;
+                    Jump.cancelled += instance.OnJump;
+                }
+            }
+        }
+        public BallActions @Ball
+        {
+            get
+            {
+                if (!m_Initialized) Initialize();
+                return new BallActions(this);
+            }
+        }
+        [Serializable]
+        public class ActionEvent : UnityEvent<InputAction.CallbackContext>
+        {
+        }
+    }
+    public interface IBallActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+    }
+}
